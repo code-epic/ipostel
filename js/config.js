@@ -5,6 +5,8 @@
  * Clase de conexion
  */
 let _url = new URL(document.URL);
+let _ID_APP = "IP-001";
+
 class Conexion{
     constructor(){
         this.IP = _url.hostname;
@@ -14,7 +16,7 @@ class Conexion{
         this.URL = "https://" + this.IP + this.PuertoSSL + this.API;
         this.URLIMG = "/imagenes/";
         this.URLTEMP = _url.hostname + "/v1/temp/";
-        this.URLSEC = "http://" + this.IP + this.Puerto;
+        this.URLSEC = "https://" + this.IP + this.PuertoSSL;
     }
 }
 
@@ -25,7 +27,7 @@ class Conexion{
 function CargarAPI(options){
     var xhttp = new XMLHttpRequest();
     xhttp.open(options.metodo, options.sURL);
-    console.log(options.sURL);
+
     xhttp.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('ipostel'));
     var promise = new Promise(function(resolve, reject) {
         xhttp.addEventListener('readystatechange', function() {
