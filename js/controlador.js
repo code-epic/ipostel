@@ -5,6 +5,8 @@ let _ANOACTUAL = new Date().getUTCFullYear();
 
 let FrmValidar = false;
 let JsonMenu = {};
+let _Aplicacion = {}
+
 let Util = new Utilidad();
 let conn = new Conexion();
 
@@ -27,11 +29,11 @@ Toast = Swal.mixin({
 
     CargarUrl('modales', 'inc/modales');
     Util.CargarJsonMenu();
-    Util.DibujarEscritorio(JsonMenu);
-    Util.DibujarMenuLateral(JsonMenu);
-    Util.DibujarEscritorio(JsonMenu);
-    ObtenerOficinas();
-    ListarServiciosTipo();
+    //Util.DibujarEscritorio(JsonMenu);
+    Util.DibujarMenuLateral();
+    //Util.DibujarEscritorio(JsonMenu);
+    //ObtenerOficinas();
+    //ListarServiciosTipo();
 
   }
  }

@@ -54,6 +54,11 @@ class Utilidad{
         var s = e.split(".");
         var MenuJS = JSON.parse(atob(s[1]));
         JsonMenu = MenuJS.Usuario;
+        JsonMenu.Aplicacion.forEach(e => {
+          if ( e.id === _ID_APP ){
+            _Aplicacion = e;
+          }
+        });
     }
     /**
      * 
@@ -153,42 +158,41 @@ class Utilidad{
       $('#cuerpo').html(cadena);
     }
 
-    DibujarMenuLateral(Mnu){
-        var cadena = `<nav class="mt-2" >
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">`;
-       
-       
-        if (Mnu.Perfil.Menu != undefined){
-          var menu = "";
-          Mnu.Perfil.Menu.forEach(v => {
+    DibujarMenuLateral(){
+        var cadena = '';
+        var submenu = '';
+        console.log(_Aplicacion)
+        if (_Aplicacion.Rol.Menu != undefined){
+          
+          _Aplicacion.Rol.Menu.forEach(v => {
+            cadena += `<li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                ${v.nombre}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>`;
+
+
+            submenu = "";
             if (v.SubMenu != undefined){
-              menu += `<li class="nav-item has-treeview ">
-              <a href="#" class="nav-link ">
-                <i class="${v.icono}"></i>
-                <p>
-                  ${v.nombre}
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a><ul class="nav nav-treeview">`
-              var submenu = "";
+              submenu += `<ul class="nav nav-treeview">`
               v.SubMenu.forEach(vx => {
                 submenu += `<li class="nav-item">
-                  <a href="#" onclick="${vx.accion}" class="nav-link ">
-                    <i class="${vx.icono} nav-icon"></i>
-                    <p>${vx.nombre}</p>
-                  </a>
-                  </li>`
+                <a href="index.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>${vx.nombre}</p>
+                </a>
+              </li>`
               })
-              menu += submenu + `</ul></li>`
-
-            }else{
+              submenu += `</ul>`;
 
             }
 
           });
-          cadena += menu + `</ul>
-          </nav>`
-          $('#_menulateral').html(cadena);
+          cadena += submenu + `</li>`
+          $('#NavMenu').html(cadena);
         }else{
           console.log("No existen menus asociados a las cuentas.");
         }

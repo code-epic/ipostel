@@ -5,27 +5,6 @@
  * Clase de conexion
  */
 
- /**
- * Desarrollado por Carlos Peña
- * Version 1.0.1
- * @gesaodin
- * Clase de conexion
- */
-
-
-// class Conexion{
-//     constructor(){
-//         this.IP = _url.hostname;
-//         this.Puerto = ":8012";
-//         this.PuertoSSL = ":2286";
-//         this.API = "/v1/api/";
-//         this.URL = "https://" + this.IP + this.PuertoSSL + this.API;
-//         this.URLIMG = "/imagenes/";
-//         this.URLTEMP = _url.hostname + "/v1/temp/";
-//         this.URLSEC = "https://" + this.IP + this.PuertoSSL;
-//     }
-// }
-
 var Conn = new Conexion();
 class Login {
   constructor(usr, clv) {
