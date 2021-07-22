@@ -12,7 +12,7 @@ class ApiCore{
         this.retorna = false;
         this.migrar = false;
         this.modulo = '';
-        this.valores = {};
+        this.valores = undefined;
         this.coleccion = '';
         this.http = 0;
         this.https = 0;

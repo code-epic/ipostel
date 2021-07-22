@@ -234,10 +234,6 @@ function verificarPrivilegioUsuario(Usuario){
 
 function listarEstados(){
 
-
-
-
- 
   var apic = new ApiCore();
   apic.funcion = "ListarEstados";
   var promesa =  CargarAPI({
@@ -248,16 +244,80 @@ function listarEstados(){
   });
 
   promesa.then(function (xhRequest) {
-      json = xhRequest.responseText;
+      json = JSON.parse( xhRequest.responseText );
       $("#cmbEstado").html("<option value='-'>SELECCIONE</option>");
-      console.log(json);
-      for(var i=0; i < cnt; i++){
+      for(var i=0; i < json.length - 1; i++){
           var v = json[i]
-          //$("#cmbEstado").append(`<option value='${v.}'>${ serv.se_Descripcion}</option>` );
+          $("#cmbEstado").append(`<option value='${v.id_estado}'>${ v.estado.toUpperCase() }</option>` );
       }
       
   });
   
 
   
+}
+
+function ListarCiudad(){
+  var apc = new ApiCore();
+  apc.funcion = "ListarCiudad"
+  apc.parametros = $("#cmbEstado").val();
+  var Promesa = CargarAPI({
+    metodo: "POST",
+    sURL: conn.URL +  "crud",
+    Objeto : {}, 
+    valores: apc
+  })
+
+  Promesa.then( (x) => {
+    json = JSON.parse(x.responseText);
+    $("#cmbCiudad").html("<option value='-'>SELECCIONE</option>");
+    json.forEach( v => {
+      $("#cmbCiudad").append(`<option value='${v.id_cidudad}'>${v.ciudad.toUpperCase()}</option>`);
+    });
+  })
+  ListarMunicipio();
+}
+
+
+function ListarMunicipio(){
+  var apc = new ApiCore();
+  apc.funcion = "ListarMunicipio"
+  apc.parametros = $("#cmbEstado").val();
+  var Promesa = CargarAPI({
+    metodo: "POST",
+    sURL: conn.URL +  "crud",
+    Objeto : {}, 
+    valores: apc
+  })
+
+  Promesa.then( (x) => {
+    json = JSON.parse(x.responseText);
+    $("#cmbMunicipio").html("<option value='-'>SELECCIONE</option>");
+    json.forEach( v => {
+      $("#cmbMunicipio").append(`<option value='${v.id_municipio}'>${v.municipio.toUpperCase()}</option>`);
+    });
+  })
+}
+
+
+
+function ListarParroquia(){
+  var apc = new ApiCore();
+  apc.funcion = "ListarParroquia"
+  apc.parametros = $("#cmbMunicipio").val();
+  var Promesa = CargarAPI({
+    metodo: "POST",
+    sURL: conn.URL +  "crud",
+    Objeto : {}, 
+    valores: apc
+  })
+
+  Promesa.then( (x) => {
+    json = JSON.parse(x.responseText);
+    $("#cmbParroquia").html("<option value='-'>SELECCIONE</option>");
+    json.forEach( v => {
+      $("#cmbParroquia").append(`<option value='${v.id_parroquia}'>${v.parroquia.toUpperCase()}</option>`);
+    });
+  })
+
 }

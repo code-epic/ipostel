@@ -50,26 +50,24 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Estado</label>
-                                            <select id="cmbEstado" class="form-control selected">
-                                                <option value="0">DTTO. CAPITAL</option>
-                                                <option value="1">LA GUAIRA</option>
+                                            <select id="cmbEstado" class="form-control selected" onchange="ListarCiudad()">
+                                                
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Ciudad</label>
-                                            <select id="cmbCiudad" class="form-control selected">
-                                                <option value="0">CARACAS</option>
-                                                <option value="1">LA GUAIRA</option>
+                                            <select id="cmbCiudad" class="form-control selected" >
+                                                <option value='-'>SELECCIONE</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Municipio</label>
-                                            <select id="cmbMunicipio" class="form-control selected">
-                                                <option value="0">LIBERTADOR</option>
+                                            <select id="cmbMunicipio" class="form-control selected" onchange="ListarParroquia()">
+                                                <option value='-'>SELECCIONE</option>
                                             </select>
                                         </div>
                                     </div>
@@ -78,9 +76,8 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Parroquia</label>
-                                            <select id="cmbParroquia" class="form-control selected">
-                                                <option value="0">SAN JUAN</option>
-                                                <option value="1">EL VALLE</option>
+                                            <select id="cmbParroquia" class="form-control selected" >
+                                                <option value='-'>SELECCIONE</option>
                                             </select>
                                         </div>
                                     </div>
@@ -330,7 +327,7 @@
                                             <select id="cmbInmueble" class="form-control selected">
                                                 <option value="0">PROPIO</option>
                                                 <option value="1">ARRENDADO</option>
-                                                <option value="2">OTRO</option>
+                                                <option value="2">COMODATO</option>
                                             </select>
                                         </div>
                                     </div>
@@ -435,6 +432,35 @@
                                                     <input type="text" id="txtEmail" class="form-control" >
                                                 </div> 
                                             </div>
+
+                                            <div class="col-md-4">
+                                                <label>FaceBook</label>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                    </div>
+                                                    <input type="text" id="txtEmail" class="form-control" >
+                                                </div> 
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Twitter</label>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                    </div>
+                                                    <input type="text" id="txtEmail" class="form-control" >
+                                                </div> 
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Instagram</label>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                    </div>
+                                                    <input type="text" id="txtEmail" class="form-control" >
+                                                </div> 
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
