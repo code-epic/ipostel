@@ -3,16 +3,29 @@ let _itemApi = {};
 
 class ApiCore{
     constructor(){
-        this.prioriodad = "alta";
-        this.concurrencia = true;
-        this.ruta = "";
-        this.funcion = "";
-        this.parametros = "";
-        this.retorna = true;
-        this.migrar = false;
-        this.modulo = "";
+        this.funcion = '';
+        this.parametros = '';
         this.relacional = false;
+        this.concurrencia = false;
+        this.protocolo = '';
+        this.ruta = '';
+        this.retorna = false;
+        this.migrar = false;
+        this.modulo = '';
         this.valores = {};
+        this.coleccion = '';
+        this.http = 0;
+        this.https = 0;
+        this.consumidores = '';
+        this.puertohttp = 0;
+        this.puertohttps = 0;
+        this.driver = '';
+        this.query = '';
+        this.metodo = '';
+        this.tipo = '';
+        this.prioridad = '';
+        this.entorno= '';
+        this.logs = false;
     }
     Obtener(){
         return this;

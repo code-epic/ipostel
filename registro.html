@@ -26,56 +26,35 @@
 
 </head>
 <body class="hold-transition login-page"  style="background:linear-gradient(197deg, #4CAA9D 10%, rgb(200, 238, 208) 90.5%) !important;">
-<div class="login-box">
 
-  <!-- /.login-logo -->
-  <div class="card card-outline card-primary" id="login1" >
-    <div class="card-body login-card-body">
-      <center>
-        <img src="img/ipostel.jpg" style="width: 90%;">
-      </center>
-      
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Usuario" id="usuario">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-address-card"></span>
-            </div>
-          </div>
+  <div class="card login-box card-outline card-primary" style="width: 50%;">
+    <center>
+      <img src="img/ipostel.jpg" style="width: 70%;">
+    </center>
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" placeholder="Nombre de la OPP" id="nombre">
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" placeholder="Rif" id="rif">
+      </div>
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" placeholder="Responsable" id="responsable">
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" placeholder="E-mail" id="email">
+      </div>
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" placeholder="Clave" id="clave">
+      </div>
+      <div class="row">
+        <div class="col-12 text-center mt-3">
+            <button type="button" class="btn btn-primary" id="">Completar Registro</button>
         </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Contraseña" id="clave">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <button type="button" class="btn btn-danger btn-block" onclick= "window.location='https://localhost:2286/app/ipostel/registro.html'";>Registrarse</button>
-          </div>
-          <!-- /.col -->
-          <div class="col-6">
-            <button type="button" class="btn btn-primary btn-block" onclick="Ingresar()">Iniciar</button>
-          </div>
-          <!-- /.col -->
-        </div>
-
-
-    <!-- /.login-card-body -->
+      </div>
     </div>
-    </div>
+  </div>
 
-     <div class="card card-outline"  id="reload" style="display:none">
-            <div class="text-center mt-2">
-                <div style="width: 5rem; height: 5rem;" class="spinner-border text-success" role="status">
-
-                </div>
-                <h5>Iniciando Sesión...</h5>
-            </div>
-    </div>
-</div>
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- /.login-box -->

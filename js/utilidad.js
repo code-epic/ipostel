@@ -126,50 +126,11 @@ class Utilidad{
       cadena += `</div></div>`;
       $('#cuerpo').html(cadena);
     }
-    /**
-     * 
-     * @param {*} Mnu 
-     * @param {*} nombre 
-     * @param {*} submenu 
-     */
-    DibujarSubMenuSubMenuEscritorio(Mnu, nombre, submenu){
-      var cadena = `<div class="row">`;
-      Mnu.Perfil.Menu.forEach(v => {
-        
-        if(v.nombre == nombre){
-          if(v.SubMenu != undefined){
-            v.SubMenu.forEach(valor => {
-              
-              if(valor.nombre == submenu){
-                console.log(valor.nombre, submenu);
-                console.log(valor);
-                if( valor.SubMenu != undefined ){
-                  valor.SubMenu.forEach(e => {
-                    cadena += `<div class="col-lg-3 col-6 ${e.clase} ">
-                    <div class="info-box" onclick="${e.accion}">
-                      <span class="info-box-icon ${e.color}"><i class="${e.icono}"></i></span>
-                      <div class="info-box-content">
-                        <span class="info-box-text">${e.nombre}</span>
-                      </div>
-                    </div>            
-                  </div>`;
-                  });
-                }
-              }
-            })
-          }
-        }
-      });
-      cadena += `</row>`;
-      $('#cuerpo').html(cadena);
-    }
-
 
 
     DibujarMenuLateral(){
         var cadena = '';
         var submenu = '';
-        console.log(_Aplicacion)
         if (_Aplicacion.Rol.Menu != undefined){
           
           _Aplicacion.Rol.Menu.forEach(v => {
@@ -203,7 +164,6 @@ class Utilidad{
           });
           
           $('#NavMenu').html(cadena);
-          console.log(cadena);
         }else{
           console.log("No existen menus asociados a las cuentas.");
         }
@@ -269,4 +229,35 @@ function verificarPrivilegioUsuario(Usuario){
 
         }
     })
+}
+
+
+function listarEstados(){
+
+
+
+
+ 
+  var apic = new ApiCore();
+  apic.funcion = "ListarEstados";
+  var promesa =  CargarAPI({
+      metodo : "POST",
+      sURL: conn.URL + "crud",
+      Objeto: {},
+      valores :  apic
+  });
+
+  promesa.then(function (xhRequest) {
+      json = xhRequest.responseText;
+      $("#cmbEstado").html("<option value='-'>SELECCIONE</option>");
+      console.log(json);
+      for(var i=0; i < cnt; i++){
+          var v = json[i]
+          //$("#cmbEstado").append(`<option value='${v.}'>${ serv.se_Descripcion}</option>` );
+      }
+      
+  });
+  
+
+  
 }
