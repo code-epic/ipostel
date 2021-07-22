@@ -57,6 +57,7 @@ class Utilidad{
         JsonMenu.Aplicacion.forEach(e => {
           if ( e.id === _ID_APP ){
             _Aplicacion = e;
+            $("#titulo").html(e.nombre);
           }
         });
     }
@@ -64,34 +65,40 @@ class Utilidad{
      * 
      * @param {*} Mnu  Json Menu
      */
-    DibujarEscritorio(Mnu){
-        var cadena = `<div class="row">`;
-        if (Mnu.Perfil.Menu != undefined){
-          Mnu.Perfil.Menu.forEach(v => {
-            if(v.url == undefined){
-              cadena += `
-                <div class="col-lg-3 col-4">
-                    <div class="small-box ${v.color}" onclick="${v.accion}" >
-                      <div class="inner">
-                          <p><h2>${v.nombre}</h2> </p>
-                      </div>
-                      <div class="icon">
-                          <i class="${v.icono}"></i>
-                      </div>
-                      <a href="#" class="small-box-footer" >&nbsp; </a>
-                    </div>
-                </div>`;
-            }else{
-              cadena += ``;
-            }
-          });
+    DibujarEscritorio(){
+      var cadena = `
+      <div class="container-fluid">
+        <div class="row">`;
+        if (_Aplicacion.Rol.Menu != undefined){
+          var i = 0;
+          _Aplicacion.Rol.Menu.forEach(v => {
 
-          cadena += `</row>`;
+            var acc = `<a href="#" class="small-box-footer" onClick="${v.accion}">&nbsp;</i></a>`;
+            if ( v.SubMenu.length > 0) 
+              acc = `<a href="#" class="small-box-footer" onClick="Util.DibujarSubMenuEscritorio(${i})">&nbsp;</i></a>`;
+
+            cadena += `<div class="col-lg-3 col-6">
+            <div class="small-box ${v.color}">
+              <div class="inner">
+                <h3>280</h3>
+                <p>${v.descripcion}</p>
+              </div>
+              <div class="icon">
+                <i class="${v.icono}"></i>
+              </div>
+              ${acc}
+            </div>
+          </div>`;
+
+
+            
+
+          });
+          cadena += `</div></div>`
           $('#cuerpo').html(cadena);
         }else{
           console.log("No existen menus asociados a las cuentas.");
-        }
-        verificarPrivilegioUsuario(Mnu);
+        }  
     }
 
     /**
@@ -167,7 +174,7 @@ class Utilidad{
           _Aplicacion.Rol.Menu.forEach(v => {
             cadena += `<li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon ${v.icono}"></i>
               <p>
                 ${v.nombre}
                 <i class="right fas fa-angle-left"></i>
@@ -180,8 +187,8 @@ class Utilidad{
               submenu += `<ul class="nav nav-treeview">`
               v.SubMenu.forEach(vx => {
                 submenu += `<li class="nav-item">
-                <a href="index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="#" class="nav-link" onclick="${vx.accion}">
+                  <i class="${vx.icono} nav-icon"></i>
                   <p>${vx.nombre}</p>
                 </a>
               </li>`

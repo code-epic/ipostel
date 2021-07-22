@@ -29,12 +29,11 @@ Toast = Swal.mixin({
 
     CargarUrl('modales', 'inc/modales');
     Util.CargarJsonMenu();
-    //Util.DibujarEscritorio(JsonMenu);
     Util.DibujarMenuLateral();
+    Util.DibujarEscritorio();
     //Util.DibujarEscritorio(JsonMenu);
     //ObtenerOficinas();
     //ListarServiciosTipo();
-
   }
  }
 
