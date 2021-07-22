@@ -77,19 +77,19 @@ class Utilidad{
             if ( v.SubMenu.length > 0) 
               acc = `<a href="#" class="small-box-footer" onClick="Util.DibujarSubMenuEscritorio(${i})">&nbsp;</i></a>`;
 
-            cadena += `<div class="col-lg-3 col-6">
-            <div class="small-box ${v.color}">
-              <div class="inner">
-                <h3>280</h3>
-                <p>${v.descripcion}</p>
-              </div>
-              <div class="icon">
-                <i class="${v.icono}"></i>
-              </div>
-              ${acc}
-            </div>
-          </div>`;
-
+              cadena += `<div class="col-lg-3 col-6">
+                <div class="small-box ${v.color}">
+                  <div class="inner">
+                    <h3>280</h3>
+                    <p>${v.descripcion}</p>
+                  </div>
+                  <div class="icon">
+                    <i class="${v.icono}"></i>
+                  </div>
+                  ${acc}
+                </div>
+              </div>`;
+            i++;
 
             
 
@@ -106,25 +106,24 @@ class Utilidad{
      * @param {*} Mnu 
      * @param {*} nombre 
      */
-    DibujarSubMenuEscritorio(Mnu, nombre){
-      var cadena = `<div class="row">`;
-      Mnu.Perfil.Menu.forEach(v => {
-        if(v.nombre == nombre){
-          if(v.SubMenu != undefined){
-            v.SubMenu.forEach(valor => {
-              cadena += `<div class="col-lg-3 col-6 ${valor.clase} ">
-                <div class="info-box" onclick="${valor.accion}">
-                  <span class="info-box-icon ${valor.color}"><i class="${valor.icono}"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">${valor.nombre}</span>
-                  </div>
-                </div>            
-              </div>`;
-            })
-          }
-        }
-      });
-      cadena += `</row>`;
+    DibujarSubMenuEscritorio(index){
+      var cadena = `<div class="container-fluid"><div class="row">`;
+      var item = _Aplicacion.Rol.Menu[index];
+      
+      if(item.SubMenu != undefined){
+        item.SubMenu.forEach(valor => {
+          cadena += `<div class="col-lg-3 col-6 ${valor.clase} ">
+            <div class="info-box" onclick="${valor.accion}">
+              <span class="info-box-icon ${valor.color}"><i class="${valor.icono}"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">${valor.nombre}</span>
+              </div>
+            </div>            
+          </div>`;
+        })
+      }
+        
+      cadena += `</div></div>`;
       $('#cuerpo').html(cadena);
     }
     /**
@@ -165,6 +164,8 @@ class Utilidad{
       $('#cuerpo').html(cadena);
     }
 
+
+
     DibujarMenuLateral(){
         var cadena = '';
         var submenu = '';
@@ -196,10 +197,13 @@ class Utilidad{
               submenu += `</ul>`;
 
             }
+            
+            cadena += submenu + `</li>`;
 
           });
-          cadena += submenu + `</li>`
+          
           $('#NavMenu').html(cadena);
+          console.log(cadena);
         }else{
           console.log("No existen menus asociados a las cuentas.");
         }
