@@ -1,0 +1,8 @@
+
+body{
+	color: #474747;
+    font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+    background: radial-gradient(circle at top left,  #c8d8dd, #d9dadb);
+}
