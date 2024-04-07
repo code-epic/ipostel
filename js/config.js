@@ -10,8 +10,8 @@ let _ID_APP = "IP-001";
 class Conexion{
     constructor(){
         this.IP = _url.hostname;
-        this.Puerto = ":8012";
-        this.PuertoSSL = ":2286";
+        this.Puerto = ":443";
+        this.PuertoSSL = ":80";
         this.API = "/v1/api/";
         this.URL = "https://" + this.IP + this.PuertoSSL + this.API;
         this.URLIMG = "/imagenes/";
@@ -77,16 +77,22 @@ function CargarAPI(options){
  * @param {string} url | HTML 
  */
 function CargarUrl(id, url){
+    console.log("prueba");
     var xhttp = new XMLHttpRequest();
     xhttp.open('GET', url + '.html');
+    console.log('GET', url + '.html');
     var promise = new Promise(function(resolve, reject) { 
-
+        console.log("llego Carga");
         xhttp.onreadystatechange = function() {
+
+            console.log("llego Carga1");
             if (this.readyState == 4 && this.status == 200) {
+                console.log("llego Carga2");
                 $('#'+id).html(xhttp.responseText);
-                
+                console.log(id);
+                console.log("llego Carga2.1");
             }else if (this.readyState == 4 && this.status == 404){
-                
+                console.log("llego Carga3");
                 Util.Mensaje(
                     `El archivo ${url} no ha sido encontrado`, 
                     'bg-danger',

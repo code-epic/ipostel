@@ -213,7 +213,7 @@
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="info-box" onclick="">
+            <div class="info-box" onclick="CargarGestionComercial()">
               <span class="info-box-icon bg-success"><i class="far fa-envelope-open"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Filatelia</span>
@@ -223,7 +223,7 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="info-box" onclick="">
+            <div class="info-box" onclick="CargarGestionComercial()">
               <span class="info-box-icon bg-yellow"><i class="far fa-envelope"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text"> E-Commerce</span>
@@ -233,7 +233,7 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="info-box" onclick="">
+            <div class="info-box" onclick="CargarGestionComercial()">
               <span class="info-box-icon bg-indigo"><i class="fas fa-dolly-flatbed"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Imprenta Postal</span>
@@ -243,16 +243,21 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="info-box" onclick="">
+            <div class="info-box" onclick="CargarGestionComercial()">
               <span class="info-box-icon bg-pink"><i class="fas fa-shipping-fast"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Remesas</span>
               </div>
             </div>
           </div>
+
+          <div class="info-box" id="cuerpo"></div>
+
     </section>
     <!-- /.content -->
   </div>
+
+ 
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
@@ -304,5 +309,10 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script src="dist/js/demo.js"></script>
+<script src="js/config.js"></script>
+<script src="js/utilidad.js"></script>
+<script src="js/controlador.js"></script>
+<script src="js/apicore.js"></script>
 </body>
 </html>

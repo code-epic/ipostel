@@ -12,16 +12,16 @@ let conn = new Conexion();
 
 
 
-Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000
-});
+// Toast = Swal.mixin({
+//     toast: true,
+//     position: 'top-end',
+//     showConfirmButton: false,
+//     timer: 3000
+// });
 
 
  $(function(){
-  if (sessionStorage.getItem('ipostel') == undefined ){
+  if (sessionStorage.getItem('ipostel') != undefined ){
     $(location).attr("href","index.html");
 
   }else{
@@ -127,6 +127,7 @@ function CargarPanel(){
 
 
 function CargarApiCore(){
+  console.log('llego');
   CargarUrl('cuerpo', 'inc/panel/apicore');
 }
 
