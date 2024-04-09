@@ -88,7 +88,8 @@ function IniciarSesion(){
  * V 1.0
  */
 function CargarCnc(){
-  Util.DibujarSubMenuEscritorio(JsonMenu, "Cnc");
+ // Util.DibujarSubMenuEscritorio(JsonMenu, "inc/cnc/registro");
+  CargarUrl('cuerpo', 'inc/cnc/registro');
 }
 
 /**
@@ -96,18 +97,17 @@ function CargarCnc(){
  * V 1.0
  */
 function CargarGestionOperativa(){
-  Util.DibujarSubMenuEscritorio(JsonMenu, "Gestion Operativa");
+  //Util.DibujarSubMenuEscritorio(JsonMenu, "Gestion Operativa");
+  CargarUrl('cuerpo', 'inc/configuracion/oficinas');
 }
-
-
-
 
  /**
   * Carga de Módulo Gestión Postal
   */
 
  function CargarGestionPostal(){
-  Util.DibujarSubMenuEscritorio(JsonMenu, "GestionPostal");
+  //Util.DibujarSubMenuEscritorio(JsonMenu, "GestionPostal");
+  CargarUrl('cuerpo', 'inc/control/admintaquillas');
 }
 
 /**
@@ -115,7 +115,8 @@ function CargarGestionOperativa(){
  * V 1.0
  */
 function CargarGestionComercial(){
-  Util.DibujarSubMenuEscritorio(JsonMenu, "GestionComercial");
+  //Util.DibujarSubMenuEscritorio(JsonMenu, "GestionComercial");
+  CargarUrl('cuerpo', 'inc/ventas/apartados');
 }
 
 /**
@@ -123,6 +124,7 @@ function CargarGestionComercial(){
  */
 function CargarPanel(){
   Util.DibujarSubMenuEscritorio(JsonMenu, "Panel");
+  CargarUrl('cuerpo', 'inc/panel/apicore');
 }
 
 
