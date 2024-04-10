@@ -100,7 +100,15 @@ function CargarGestionOperativa(){
   //Util.DibujarSubMenuEscritorio(JsonMenu, "Gestion Operativa");
   CargarUrl('cuerpo', 'inc/configuracion/oficinas');
 }
+function CargarGestionOperativasat(){
+  //Util.DibujarSubMenuEscritorio(JsonMenu, "Gestion Operativa");
+  CargarUrl('cuerpo', 'inc/sat/telegrama');
+}
 
+function CargarGestionOperativaTracking(){
+  //Util.DibujarSubMenuEscritorio(JsonMenu, "Gestion Operativa");
+  CargarUrl('cuerpo', 'inc/tracking/seguimiento');
+}
  /**
   * Carga de Módulo Gestión Postal
   */
@@ -116,7 +124,8 @@ function CargarGestionOperativa(){
  */
 function CargarGestionComercial(){
   //Util.DibujarSubMenuEscritorio(JsonMenu, "GestionComercial");
-  CargarUrl('cuerpo', 'inc/ventas/apartados');
+  //CargarUrl('cuerpo', 'inc/ventas/apartados');
+  CargarUrl('cuerpo', 'inc/escritorio');
 }
 
 /**
